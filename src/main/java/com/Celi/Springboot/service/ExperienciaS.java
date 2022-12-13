@@ -16,7 +16,7 @@ public class ExperienciaS {
       IExperienciaR iexperienciaR;
 
     
-    public List<ExperienciaE> getExperiencia() {
+    public List<ExperienciaE> getExperiencias() {
         List<ExperienciaE>  listaExperiencias = iexperienciaR.findAll();
         return listaExperiencias;
     }
@@ -36,5 +36,7 @@ public class ExperienciaS {
          ExperienciaE  expe = iexperienciaR.findById(id).orElse(null);
           return expe;
    }
-    
+     public void editExperiencia(ExperienciaE expe) {
+        iexperienciaR.save(expe);
+   }
 }

@@ -16,7 +16,7 @@ public class EducacionS {
       IEducacionR ieducacionR;
 
     
-    public List<EducacionE> geteducacion() {
+    public List<EducacionE> getEducaciones() {
         List<EducacionE>  listaEducaciones = ieducacionR.findAll();
         return listaEducaciones;
     }
@@ -32,13 +32,13 @@ public class EducacionS {
   }
 
   
-    public EducacionE findPersona(Long id) {
+    public EducacionE findEducacion(Long id) {
           EducacionE  edu= ieducacionR.findById(id).orElse(null);
           return edu;
    }
 
-    public List<EducacionE> getEducacion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public void editEducacion(EducacionE edu) {
+        ieducacionR.save(edu);
+   }
     
 }

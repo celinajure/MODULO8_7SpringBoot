@@ -17,7 +17,7 @@ public class HabilidadS {
       IHabilidadR ihabilidadR;
 
     
-    public List<HabilidadE> getHabilidad() {
+    public List<HabilidadE> getHabilidades() {
         List<HabilidadE>  listaHabilidades = ihabilidadR.findAll();
         return listaHabilidades;
     }
@@ -37,6 +37,8 @@ public class HabilidadS {
        HabilidadE  habi = ihabilidadR.findById(id).orElse(null);
           return habi;
    }
-    
+    public void editHabilidad(HabilidadE habi) {
+        ihabilidadR.save(habi);
+   }
     
 }

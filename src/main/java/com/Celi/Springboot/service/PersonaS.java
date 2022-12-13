@@ -38,8 +38,8 @@ public class PersonaS {
           return perso;
    }
     
-    /*public void editPersona(PersonaE per) {
-        ipersonaR.edit(per);
-   }*/
+    public void editPersona(PersonaE per) {
+        ipersonaR.save(per);
+   }
     
 }

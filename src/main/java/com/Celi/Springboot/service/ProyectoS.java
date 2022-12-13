@@ -17,7 +17,7 @@ public class ProyectoS {
       IProyectoR iproyectoR;
 
     
-    public List<ProyectoE> getProyecto() {
+    public List<ProyectoE> getProyectos() {
         List<ProyectoE>  listaProyectos = iproyectoR.findAll();
         return listaProyectos;
     }
@@ -36,5 +36,8 @@ public class ProyectoS {
     public ProyectoE findProyecto(Long id) {
           ProyectoE  proy = iproyectoR.findById(id).orElse(null);
           return proy;
+   }
+     public void editProyecto(ProyectoE proye) {
+        iproyectoR.save(proye);
    }
 }

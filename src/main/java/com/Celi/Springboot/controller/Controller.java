@@ -1,4 +1,3 @@
-
 package com.Celi.Springboot.controller;
 
 import com.Celi.Springboot.entity.EducacionE;
@@ -6,11 +5,13 @@ import com.Celi.Springboot.entity.ExperienciaE;
 import com.Celi.Springboot.entity.HabilidadE;
 import com.Celi.Springboot.entity.PersonaE;
 import com.Celi.Springboot.entity.ProyectoE;
+import com.Celi.Springboot.entity.RedesE;
 import com.Celi.Springboot.service.EducacionS;
 import com.Celi.Springboot.service.ExperienciaS;
 import com.Celi.Springboot.service.HabilidadS;
 import com.Celi.Springboot.service.PersonaS;
 import com.Celi.Springboot.service.ProyectoS;
+import com.Celi.Springboot.service.RedesS;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
     
 // controller de Persona
+    //RequestMapping("persona")
     @Autowired
     PersonaS persoS;
 
@@ -44,24 +46,26 @@ public class Controller {
     @DeleteMapping("/delete/perso/{id}")
     public String eliminarPersona(@PathVariable Long id) {
         persoS.deletePersona(id);
-        return "La persona fue borrada correctamente";
+        return "La PERSONA fue borrada correctamente";
     }
     //esta es una prueba de editar
-    @PutMapping("/editar/perso")
-    public void updatePersona(@RequestBody PersonaE per){
+    @PutMapping("/editar/perso/{id}")
+    public String updatePersona(@RequestBody PersonaE per){
         persoS.savePersona(per);
+          return "Los CAMBIOS de la PERSONA han sido realizados correctamente";
     }
       
 
     
       //controller de Educacion
+    //@RequestMapping("educacion")
     @Autowired
     EducacionS educacionS;
 
     @GetMapping("/ver/educaciones")
      @ResponseBody
     public List<EducacionE> verEducaciones() {
-        return educacionS.getEducacion();
+        return educacionS.getEducaciones();
     }
     
     @PostMapping("/new/educacion")
@@ -70,26 +74,28 @@ public class Controller {
         return "La educación ingresada fue agregada correctamente";
     }
    
-    @DeleteMapping("delete//edu/{id}")
+    @DeleteMapping("delete/edu/{id}")
     public String eliminarEducacion(@PathVariable Long id) {
         educacionS.deleteEducacion(id);
         return "La educación mencionada fue borrada correctamente";
     } 
    //esta es una prueba de editar
-    @PutMapping("/editar/edu")
-    public void updateEducacion(@RequestBody EducacionE edu){
+    @PutMapping("/editar/edu/{id}")
+    public String updateEducacion(@RequestBody EducacionE edu){
         educacionS.saveEducacion(edu);
+        return  "La EDUCACIÓN ha sido modificada correctamente";
     }
 
     
     //controller de Experiencia
+    //@RequestMapping("experiencia")
     @Autowired
     ExperienciaS experienciaS;
 
     @GetMapping("/ver/experiencias")
      @ResponseBody
     public List<ExperienciaE> verExperiencias() {
-        return experienciaS.getExperiencia();
+        return experienciaS.getExperiencias();
     }
     
     @PostMapping("/new/expe")
@@ -110,13 +116,14 @@ public class Controller {
     }
 
    //controller de Habilidad
+    //@RequestMapping("habilidad")
     @Autowired
     HabilidadS habilidadS;
 
     @GetMapping("/ver/habis")
      @ResponseBody
     public List<HabilidadE> verHabilidades() {
-        return habilidadS.getHabilidad();
+        return habilidadS.getHabilidades();
     }
     
     @PostMapping("/new/habi")
@@ -130,37 +137,66 @@ public class Controller {
         habilidadS.deleteHabilidad(id);
         return "La habilidad mencionada fue borrada correctamente";
     } 
-   //esta es una prueba de editar
-    @PutMapping("/editar/habi")
-    public void updateHabilidad(@RequestBody HabilidadE habi){
+   //esta es una prueba de editar 
+    @PutMapping("/editar/habi/{id}")
+    public String updateHabilidad(@RequestBody HabilidadE habi){
         habilidadS.saveHabilidad(habi);
+         return "La HABILIDAD editada fue modificada correctamente";
     } 
     
      //controller de Proyecto
+    //@RequestMapping("proyecto")
     @Autowired
     ProyectoS proyectoS;
 
     @GetMapping("/ver/proyectos")
      @ResponseBody
     public List<ProyectoE> verProyectos() {
-        return proyectoS.getProyecto();
+        return proyectoS.getProyectos();
     }
     
     @PostMapping("/new/proyecto")
     public String agregarProyecto(@RequestBody ProyectoE proye) {
        proyectoS.saveProyecto(proye);
-        return "La proyecto ingresada fue agregada correctamente";
+        return "El proyecto ingresado fue agregado correctamente";
     }
    
     @DeleteMapping("/delete/proyecto/{id}")
     public String eliminarProyecto(@PathVariable Long id) {
         proyectoS.deleteProyecto(id);
-        return "La proyecto mencionada fue borrada correctamente";
+        return "El proyecto mencionado fue borrado correctamente";
     } 
    //esta es una prueba de editar, por segunda vez
     @PutMapping("/editar/proyecto")
     public void updateProyecto(@RequestBody ProyectoE proye){
         proyectoS.saveProyecto(proye);
     }
+// controller de Redes
+    //RequestMapping("redes")
+    @Autowired
+    RedesS redesS;
 
+    @GetMapping("/ver/redes")
+    @ResponseBody
+    public List<RedesE> verRedes() {
+        return redesS.getRedes();
+    }
+
+    @PostMapping("/new/red")
+    public String agregarRed(@RequestBody RedesE red) {
+        redesS.saveRed(red);
+        return "La RED fue agregada correctamente";
+    }
+
+    @DeleteMapping("/delete/red/{id}")
+    public String eliminarRedes(@PathVariable Long id) {
+        redesS.deleteRed(id);
+        return "La RED fue borrada correctamente";
+    }
+    //esta es una prueba de editar
+    @PutMapping("/editar/red/{id}")
+    public String updateRedes(@RequestBody RedesE red){
+        redesS.saveRed(red);
+          return "Los CAMBIOS en la RED han sido realizados correctamente";
+    }
 }

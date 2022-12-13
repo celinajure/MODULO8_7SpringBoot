@@ -27,8 +27,7 @@ public class ExperienciaE {
     public ExperienciaE() {
     }
 
-    public ExperienciaE(Long id, String nombre, String telefono, String email, String url, String inicioFecha, String finFecha, String tipo, Boolean estaHoy) {
-        this.id = id;
+    public ExperienciaE(String nombre, String telefono, String email, String url, String inicioFecha, String finFecha, String tipo, Boolean estaHoy) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.email = email;

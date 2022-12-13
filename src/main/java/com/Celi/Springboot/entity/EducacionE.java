@@ -28,8 +28,7 @@ public class EducacionE {
     public EducacionE() {
     }
 
-    public EducacionE(Long id, String nombre, String lugar, String telefono, String email, String domicilio, String inicioFecha, String finFecha, String tipo, Boolean estaHoy) {
-        this.id = id;
+    public EducacionE(String nombre, String lugar, String telefono, String email, String domicilio, String inicioFecha, String finFecha, String tipo, Boolean estaHoy) {
         this.nombre = nombre;
         this.lugar = lugar;
         this.telefono = telefono;
