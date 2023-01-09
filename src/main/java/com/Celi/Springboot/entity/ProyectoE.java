@@ -1,11 +1,11 @@
 
 package com.Celi.Springboot.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,12 +21,14 @@ public class ProyectoE {
     private String telefono;
     private String email;
     private String domicilio;
-    @Lob
+   @Column(length=2000)
     private String descripcion;
+    //@Temporal(TemporalType.DATE)
     private String inicioFecha;
+     //@Temporal(TemporalType.DATE)
     private String finFecha;
     private String tipo;
-    private String estaHoy;
+    private Boolean estaHoy;
     private String imagen1;
     private String imagen2;
     private String imagen3;
@@ -36,7 +38,7 @@ public class ProyectoE {
     public ProyectoE() {
     }
 
-    public ProyectoE(String numero, String nombre, String telefono, String email, String domicilio, String descripcion, String inicioFecha, String finFecha, String tipo, String estaHoy, String imagen1, String imagen2, String imagen3, String imagen4, String imagen5) {
+    public ProyectoE(String numero, String nombre, String telefono, String email, String domicilio, String descripcion, String inicioFecha, String finFecha, String tipo, Boolean estaHoy, String imagen1, String imagen2, String imagen3, String imagen4, String imagen5) {
         this.numero = numero;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -52,10 +54,7 @@ public class ProyectoE {
         this.imagen3 = imagen3;
         this.imagen4 = imagen4;
         this.imagen5 = imagen5;
-    }
-
-   
-    
+    } 
     
 }
 

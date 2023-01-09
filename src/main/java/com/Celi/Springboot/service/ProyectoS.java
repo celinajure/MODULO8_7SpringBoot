@@ -23,8 +23,8 @@ public class ProyectoS {
     }
 
    
-    public void saveProyecto(ProyectoE proy) {
-        iproyectoR.save(proy);
+    public void saveProyecto(ProyectoE proye) {
+        iproyectoR.save(proye);
    }
 
     
@@ -34,9 +34,10 @@ public class ProyectoS {
 
   
     public ProyectoE findProyecto(Long id) {
-          ProyectoE  proy = iproyectoR.findById(id).orElse(null);
-          return proy;
+          ProyectoE  proye = iproyectoR.findById(id).orElse(null);
+          return proye;
    }
+    
      public void editProyecto(ProyectoE proye) {
         iproyectoR.save(proye);
    }

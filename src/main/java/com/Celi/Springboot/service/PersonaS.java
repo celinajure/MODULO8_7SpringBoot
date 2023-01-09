@@ -17,7 +17,7 @@ public class PersonaS {
       IPersonaR ipersonaR;
 
     
-    public List<PersonaE> getPersona() {
+    public List<PersonaE> getPersonas() {
         List<PersonaE>  listaPersonas = ipersonaR.findAll();
         return listaPersonas;
     }
@@ -27,12 +27,10 @@ public class PersonaS {
         ipersonaR.save(per);
    }
 
-    
     public void deletePersona(Long id) {
         ipersonaR.deleteById(id);
   }
 
-  
     public PersonaE findPersona(Long id) {
           PersonaE  perso = ipersonaR.findById(id).orElse(null);
           return perso;
@@ -42,4 +40,14 @@ public class PersonaS {
         ipersonaR.save(per);
    }
     
+    public PersonaE loginPersona(String email, String clave){
+        List <PersonaE> persona=ipersonaR.findByEmailAndClave(email, clave);
+        if (!persona.isEmpty()){
+            return persona.get(0);
+        }
+        return null;
+    }
+
+    
 }
+

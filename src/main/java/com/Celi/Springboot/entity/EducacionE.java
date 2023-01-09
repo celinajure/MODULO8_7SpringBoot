@@ -20,7 +20,9 @@ public class EducacionE {
     private String telefono;
     private String email;
     private String domicilio;
+    //@Temporal(TemporalType.DATE)
     private String inicioFecha;
+   // @Temporal(TemporalType.DATE)
     private String finFecha;
     private String tipo;
     private Boolean estaHoy;
